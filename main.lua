@@ -42,9 +42,7 @@ local shttp = {
                 pattern = k
                 local s
                 for s in string.gmatch(data, "%S+") do
-                    if s ~= v then
-                        table.insert(words, s)
-                    end
+                    if s ~= v then table.insert(words, s) end
                 end
             end
         end
@@ -52,11 +50,7 @@ local shttp = {
     end,
 
     get_page = function(self, route)
-        for k, v in pairs(routes) do
-            if v.route == route then
-                return v
-            end
-        end
+        for k, v in pairs(routes) do if v.route == route then return v end end
         return "notfound"
     end,
 
